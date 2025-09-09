@@ -1,0 +1,71 @@
+/* Navbar Container */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1000;
+  background: rgba(0,0,0,0.6); /* semi-transparent dark background */
+  backdrop-filter: blur(6px); /* glass effect */
+  border-radius: 0 0 12px 12px;
+  font-family: 'Poppins', sans-serif;
+  transition: background 0.3s ease;
+}
+
+/* Navbar Links */
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.nav-links li {
+  list-style: none;
+}
+.nav-links li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.nav-links li a:hover {
+  color: #facc15; /* accent color */
+  transform: translateY(-2px);
+}
+
+/* Hamburger Menu (Mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    flex-direction: column;
+    background: rgba(0,0,0,0.85);
+    display: none;
+    padding: 1rem 0;
+  }
+  .nav-links.active {
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+  }
+}

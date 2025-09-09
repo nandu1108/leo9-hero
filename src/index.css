@@ -1,0 +1,41 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scrolling */
+html, body {
+  scroll-behavior: smooth;
+}
+
+/* Subtle noise texture for depth */
+.noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  pointer-events: none;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" opacity="0.4"><filter id="noiseFilter"><feTurbulence type="fractalNoise" baseFrequency="1.55" numOctaves="3" stitchTiles="stitch"/></filter><rect width="100%" height="100%" filter="url(%23noiseFilter)"/></svg>');
+}
+
+.gradient-ring {
+  position: absolute;
+  inset: -20% -10%;
+  background: radial-gradient(60% 60% at 50% 40%, rgba(115, 94, 255, 0.35) 0%, rgba(115, 94, 255, 0.05) 45%, transparent 60%),
+              radial-gradient(40% 40% at 20% 80%, rgba(255, 94, 247, 0.30) 0%, rgba(255, 94, 247, 0.04) 55%, transparent 70%);
+  filter: blur(40px);
+  z-index: -1;
+}
+
+.glass {
+  @apply bg-white/5 backdrop-blur supports-[backdrop-filter]:bg-white/5 supports-[backdrop-filter]:backdrop-blur;
+}
+
+.nav-hover {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  background-size: 0% 2px;
+  transition: background-size .3s ease;
+}
+.nav-hover:hover {
+  background-size: 100% 2px;
+}
